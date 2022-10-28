@@ -12,7 +12,7 @@ class TikTok():
         self.driver = webdriver.Firefox(options=self.options)
         self.driver.get('https://www.tiktok.com/')
     def account_parse(self, account):
-        print('Скрипт успішно запущено! Скачування почнеться через 300 секунд(5 хв.).')
+        print('Script succesfully started! The download will start in 300 seconds.')
         with open('links.txt', 'w') as file:
                 file.write('')
         url = 'https://www.tiktok.com/' + '@' + account
@@ -32,7 +32,7 @@ class TikTok():
     def download(self):
         with open('links.txt', 'r') as file:
             urls = file.readlines()
-            print('Скачування почалося! Всі відео будуть скачані в папку "Завантаження".')
+            print("Downloading has been started! All videos will be downloaded to the 'Download' folder.")
         for url in urls:
             try:
                 self.driver.get('https://snaptik.app/en')
@@ -55,8 +55,8 @@ class TikTok():
         self.driver.quit()
 def main():
     try:
-        print("Дякую за покупку софта, покищо це рання версія, тому можуть бути баги. Мій телеграм для зв'язку: @wztpw")
-        account = input("Введіть ім'я аккаунта: ")
+        print("Thanks for using my soft!")
+        account = input("Write tiktok account name: ")
         driver = TikTok()
         driver.account_parse(account=account)
         driver.download()
